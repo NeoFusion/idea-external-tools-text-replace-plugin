@@ -1,0 +1,31 @@
+<idea-plugin url="https://github.com/NeoFusion/idea-external-tools-text-replace-plugin">
+  <id>ru.neofusion.ExternalToolsTextReplace</id>
+  <name>External Tools Text Replace</name>
+  <version>0.1.0</version>
+  <vendor email="evgeniy@neofusion.ru" url="http://neofusion.ru">Evgeniy NeoFusion</vendor>
+
+  <description><![CDATA[
+      <p>Extension for <b>External Tools</b> allows to replace text selection with external program stdout result.</p>
+      <br>
+      <p><b>Usage:</b>
+      <ul>
+      <li>Add new external tool (use <i>SelectedText</i> as an argument)</li>
+      <li>Select some text in the editor</li>
+      <li>Invoke tool from the <b>External Tools Replace</b> context menu group</li>
+      </ul>
+      </p>
+    ]]></description>
+
+  <idea-version since-build="173.0"/>
+
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij"/>
+
+  <actions>
+    <group id="ExternalToolsReplaceGroup" class="ExternalToolsReplaceGroup" popup="true" text="External Tools Replace">
+      <add-to-group group-id="EditorPopupMenu" anchor="before" relative-to-action="CompareClipboardWithSelection"/>
+    </group>
+  </actions>
+
+</idea-plugin>
