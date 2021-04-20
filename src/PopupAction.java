@@ -14,8 +14,8 @@ import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
-import com.intellij.tools.HackyDataContext;
 import com.intellij.tools.Tool;
+import com.intellij.tools.ToolAction;
 import com.intellij.tools.ToolProcessAdapter;
 import com.intellij.tools.ToolsBundle;
 import com.intellij.tools.ToolsProvider;
@@ -39,7 +39,7 @@ public class PopupAction extends AnAction {
         Tool tool = findTool(actionId, event.getDataContext());
         if (tool != null) {
             ReplaceAdapter processListener = new ReplaceAdapter(editor, project, document);
-            execute(tool, new HackyDataContext(event.getDataContext()), processListener);
+            execute(tool, ToolAction.getToolDataContext(event.getDataContext()), processListener);
         }
     }
 

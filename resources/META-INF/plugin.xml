@@ -1,7 +1,7 @@
 <idea-plugin url="https://github.com/NeoFusion/idea-external-tools-text-replace-plugin">
   <id>ru.neofusion.ExternalToolsTextReplace</id>
   <name>External Tools Text Replace</name>
-  <version>0.1.2</version>
+  <version>0.2.0</version>
   <vendor email="evgeniy@neofusion.ru" url="http://neofusion.ru">Evgeniy NeoFusion</vendor>
 
   <description><![CDATA[
@@ -16,7 +16,7 @@
       </p>
     ]]></description>
 
-  <idea-version since-build="191.4212.41" until-build="211.*"/>
+  <idea-version since-build="211.4961.30"/>
 
   <depends>com.intellij.modules.platform</depends>
 
