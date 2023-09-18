@@ -1,8 +1,8 @@
 <idea-plugin url="https://github.com/NeoFusion/idea-external-tools-text-replace-plugin">
   <id>ru.neofusion.ExternalToolsTextReplace</id>
   <name>External Tools Text Replace</name>
-  <version>0.2.0</version>
-  <vendor email="evgeniy@neofusion.ru" url="http://neofusion.ru">Evgeniy NeoFusion</vendor>
+  <version>0.3.0</version>
+  <vendor email="evgeniy@neofusion.ru" url="https://neofusion.ru">Evgeniy NeoFusion</vendor>
 
   <description><![CDATA[
       <p>Extension for <b>External Tools</b> allows to replace text selection with external program stdout result.</p>
@@ -16,7 +16,7 @@
       </p>
     ]]></description>
 
-  <idea-version since-build="211.4961.30"/>
+  <idea-version since-build="232.9921.47"/>
 
   <depends>com.intellij.modules.platform</depends>
 

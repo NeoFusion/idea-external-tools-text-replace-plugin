@@ -5,7 +5,6 @@ import com.intellij.execution.process.OSProcessHandler;
 import com.intellij.execution.process.ProcessEvent;
 import com.intellij.execution.process.ProcessListener;
 import com.intellij.execution.util.ExecutionErrorDialog;
-import com.intellij.ide.macro.MacroManager;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
@@ -36,15 +35,15 @@ public class PopupAction extends AnAction {
         final Editor editor = event.getRequiredData(CommonDataKeys.EDITOR);
         final Project project = event.getRequiredData(CommonDataKeys.PROJECT);
         final Document document = editor.getDocument();
-        Tool tool = findTool(actionId, event.getDataContext());
+        Tool tool = findTool(actionId);
         if (tool != null) {
             ReplaceAdapter processListener = new ReplaceAdapter(editor, project, document);
             execute(tool, ToolAction.getToolDataContext(event.getDataContext()), processListener);
         }
     }
 
-    private static Tool findTool(String actionId, DataContext context) {
-        MacroManager.getInstance().cacheMacrosPreview(context);
+    @Nullable
+    private static Tool findTool(@NotNull String actionId) {
         for (Tool tool: ToolsProvider.getAllTools()) {
             if (actionId.equals(tool.getActionId())) {
                 return tool;
@@ -79,6 +78,7 @@ public class PopupAction extends AnAction {
             handler.startNotify();
         } catch (ExecutionException ex) {
             ExecutionErrorDialog.show(ex, ToolsBundle.message("tools.process.start.error"), project);
+            notifyCouldNotStart(processListener);
             return false;
         }
         return true;
